@@ -1,7 +1,7 @@
 package bitcamp.java89.ems;
 import java.util.Scanner;
 
-public class AduApp04 {
+public class EduApp04 {
 
   static Scanner keyScan = new Scanner(System.in);
 
