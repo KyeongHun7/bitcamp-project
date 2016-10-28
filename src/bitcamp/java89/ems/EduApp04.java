@@ -13,7 +13,7 @@ public class EduApp04 {
     while (true) {
       System.out.println("무엇을 선택하시겠습니까 : 예) add, list, view, delete, update");
       String input = keyScan.nextLine().toLowerCase();
-
+ 
 
       switch (input) {
         case "add" :
