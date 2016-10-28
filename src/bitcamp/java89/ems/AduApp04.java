@@ -11,7 +11,7 @@ public class AduApp04 {
 
     loop :
     while (true) {
-      System.out.println("무엇을 선택하시겠습니까 : 예) add, list, view");
+      System.out.println("무엇을 선택하시겠습니까 : 예) add, list, view, delete, update");
       String input = keyScan.nextLine().toLowerCase();
 
 
@@ -24,6 +24,12 @@ public class AduApp04 {
             break;
         case "view" :
           bookController.doView();
+              break;
+        case "delete" :
+          bookController.doDelete();
+              break;
+        case "update" :
+          bookController.doUpdate();
               break;
 
         case "quit" :
