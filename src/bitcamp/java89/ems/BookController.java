@@ -3,16 +3,51 @@ package bitcamp.java89.ems;
 import java.util.Scanner;
 
 public class BookController {
-  Book[] books = new Book[100];
-  int length = 0;
-  Scanner keyScan;
+  private Book[] books = new Book[100];
+  private int length = 0;
+  private Scanner keyScan;
 
   // 기본생성자가 없다
   public BookController(Scanner keyScan) {
     this.keyScan = keyScan;
   }
 
-  public void doAdd() {
+  public void service() {
+    loop :
+    while (true) {
+      System.out.println("무엇을 선택하시겠습니까 : 예) add, list, view, delete, update");
+      String input = keyScan.nextLine().toLowerCase();
+
+
+      switch (input) {
+        case "add" :
+          this.doAdd();
+           break;
+        case "list" :
+          this.doPrint();
+            break;
+        case "view" :
+          this.doView();
+              break;
+        case "delete" :
+          this.doDelete();
+              break;
+        case "update" :
+          this.doUpdate();
+              break;
+
+        case "quit" :
+         System.out.println("잘가용");
+         break loop;
+         default :
+         System.out.println("지원하지 않는 명령어 입니다.");
+
+      }
+    }
+  }
+
+
+  private void doAdd() {
     Book book = new Book();
     System.out.println("교제 제목?(예 : 엄진영의 백문의 부려실행) ");
     System.out.print("Add> ");
@@ -52,7 +87,7 @@ public class BookController {
   }
 
 
-  public void doPrint() {
+  private void doPrint() {
     for (int i = 0; i < this.length; i++) {
       Book book = this.books[i];
       System.out.printf("%s,%s,%s,%s,%s,%d,%d,%b\n", book.name,
@@ -67,7 +102,7 @@ public class BookController {
   }
 
 
-  public void doView() {
+  private void doView() {
     Scanner keyScan = new Scanner(System.in);
     System.out.println("무엇을 보시겠습니까?  ");
     String input = this.keyScan.nextLine();
@@ -89,7 +124,7 @@ public class BookController {
 
   }
 
-  public void doDelete() {
+  private void doDelete() {
     Scanner keyScan = new Scanner(System.in);
     System.out.println("삭제할 교제의 이름은?  ");
     String input = this.keyScan.nextLine();
@@ -108,7 +143,7 @@ public class BookController {
 
   }
 
-  public void doUpdate() {
+  private void doUpdate() {
     System.out.println("변경할 교제 제목은?");
 
     String input = this.keyScan.nextLine();
