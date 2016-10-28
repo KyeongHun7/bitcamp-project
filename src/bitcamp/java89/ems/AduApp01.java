@@ -1,7 +1,7 @@
 package bitcamp.java89.ems;
 import java.util.Scanner;
 
-public class AduApp {
+public class AduApp01 {
 
   public static void main(String[] args) {
     System.out.println("비트캠프 관리 시스템에 오신걸 환영합니다.");
@@ -11,25 +11,25 @@ public class AduApp {
                     // 레퍼런스 배열에 몇개의 Book 인스턴스가 들어있는지 그 개수를 보관한다.
     Scanner keyScan = new Scanner(System.in);
 
+    loop :
     while (true) {
       System.out.println("무엇을 선택하시겠습니까 : 예) add, list, view");
-      String input = keyScan.nextLine();
-      if (input.equals("add")) {
+      String input = keyScan.nextLine().toLowerCase();
 
-        addBookList(books, length++);
-      }
-      else if(input.equals("list")) {
-         printBookList(books, length);
-      }
-      else if(input.equals("view")) {
-        viewBookList(books, length);
-      }
-      System.out.println("더 명령하시겠습니깡?예) (y/n)?");
-      if (!keyScan.nextLine().equals("y")) {
-        System.out.println("잘못된 값을 입력하셨씁니다.... 빠져나갑니다");
-        break;
-      }
 
+      switch (input) {
+        case "add" :
+        case "list" :
+        case "view" :
+         System.out.println(input);
+         break;
+        case "quit" :
+         System.out.println("잘가용");
+         break loop;
+         default :
+         System.out.println("지원하지 않는 명령어 입니다.");
+
+      }
     }
 
 
