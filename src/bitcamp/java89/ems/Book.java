@@ -1,4 +1,4 @@
-package ems;
+package bitcamp.java89.ems;
 
 public class Book {
   // 인스턴스 변수
